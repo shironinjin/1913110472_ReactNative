@@ -5,7 +5,10 @@ import Welcome from './components/Welcome';
 import Practice1_StyleSheet from './components/Practice1_StyleSheet';
 import TxtInput from './components/TxtInput';
 import CustomComponents from './components/CustomComponents';
-
+import Logo from './components/Logo';
+import LotsOfGreeting from './components/LotsOfGreeting';
+import MyCustomTextWith from './components/MyCustomTextWith';
+// import Users from './components/Users';
 const App = () => {
   return (
     <View>
@@ -13,8 +16,11 @@ const App = () => {
     {/* <Welcome/>*/}
      {/*<Practice1_StyleSheet/>*/}
      {/*<TxtInput/>*/}
-     <CustomComponents/>
-     
+     {/*<CustomComponents/>*/}
+     {/*} <Logo/>   */}
+      {/* <Users/>   */}
+      {/*<LotsOfGreeting/>*/}
+      <MyCustomTextWith/>
     </View>
   )
 }
