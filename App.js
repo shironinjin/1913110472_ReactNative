@@ -11,12 +11,22 @@ import React from "react";
 // import Count from './components/Count';
 // import TxtInput1 from './components/TxtInput1';
 // import Users from './components/Users';
-import UserNamePassword from "./components/UserNamePassword";
+//import UserNamePassword from "./components/UserNamePassword";
+//import AlertExample from "./components/AlertExample";
+//import ImageWithTextInput from "./components/ImageWithTextInput";
+//import ButtonExample from "./components/ButtonExample";
+//import TouchableExample from "./components/TouchableExample";
+import TouchablePractice from "./components/TouchablePractice";
 
 const App = () => {
   return (
     <View>
-      <UserNamePassword />
+      <TouchablePractice/>
+      {/*<TouchableExample/>*/}
+      {/*<ButtonExample/>*/}
+      {/*} <ImageWithTextInput/>*/}
+      {/*<AlertExample/>*/}
+      {/*<UserNamePassword />*/}
       {/* <Information/>*/}
       {/* <Welcome/>*/}
       {/*<Practice1_StyleSheet/>*/}
@@ -33,10 +43,10 @@ const App = () => {
 
 export default App;
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-  },
-});
+// const styles = StyleSheet.create({
+//   container: {
+//     flex: 1,
+//     justifyContent: "center",
+//     alignItems: "center",
+//   },
+// });
