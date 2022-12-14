@@ -1,52 +1,60 @@
-import { StyleSheet, Text, View } from "react-native";
+import { View, Text, Button } from "react-native";
 import React from "react";
-// import Information from './components/Information'
-// import Welcome from './components/Welcome';
-// import Practice1_StyleSheet from './components/Practice1_StyleSheet';
-// import TxtInput from './components/TxtInput';
-// import CustomComponents from './components/CustomComponents';
-// import Logo from './components/Logo';
-// import LotsOfGreeting from './components/LotsOfGreeting';
-// import MyCustomTextWith from './components/MyCustomTextWith';
-// import Count from './components/Count';
-// import TxtInput1 from './components/TxtInput1';
-// import Users from './components/Users';
-//import UserNamePassword from "./components/UserNamePassword";
-//import AlertExample from "./components/AlertExample";
-//import ImageWithTextInput from "./components/ImageWithTextInput";
-//import ButtonExample from "./components/ButtonExample";
-//import TouchableExample from "./components/TouchableExample";
-import TouchablePractice from "./components/TouchablePractice";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import HomeScreen from "./screen/HomeScreen";
+import AboutScreen from "./screen/AboutScreen";
+import HomePost from "./screen/HomePost";
+import CreatePost from "./screen/CreatePost";
+import FirstPage from "./screen/FirstPage";
+import SecondPage from "./screen/SecondPage";
+
+/* function HomeScreen({Navigation}) {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>Home Screen</Text>
+      <Button title="เกี่ยวกับเรา" onPress={()=> Navigation.navigete('About')}/>
+    </View>
+  );
+}
+function AboutScreen() {
+  return (
+    <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+      <Text>About Screen</Text>
+    </View>
+  );
+} */
+
+const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <View>
-      <TouchablePractice/>
-      {/*<TouchableExample/>*/}
-      {/*<ButtonExample/>*/}
-      {/*} <ImageWithTextInput/>*/}
-      {/*<AlertExample/>*/}
-      {/*<UserNamePassword />*/}
-      {/* <Information/>*/}
-      {/* <Welcome/>*/}
-      {/*<Practice1_StyleSheet/>*/}
-      {/*<TxtInput/>*/}
-      {/*<CustomComponents/>*/}
-      {/*} <Logo/>   */}
-      {/* <Users/>   */}
-      {/*<LotsOfGreeting/>*/}
-      {/*<MyCustomTextWith/>*/}
-      {/* <TxtInput1/>*/}
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator
+       initialRouteName="Home"
+       screenOptions={{
+        headerStyle:{
+          backgroundColor:'#8fbc8f'
+        },
+        headerTitColor:'#f0fff0',
+        headerTitleStyle:{
+          fontWeight:'bold'
+        }
+       }}
+       >
+        {/* <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} /> */}
+        {/* <Stack.Screen name="Home" component={HomePost} />
+        <Stack.Screen name="Create" component={CreatePost} />
+ */}
+
+<Stack.Screen name="First" component={FirstPage} />
+<Stack.Screen name="Second" component={SecondPage} />
+
+
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 
 export default App;
-
-// const styles = StyleSheet.create({
-//   container: {
-//     flex: 1,
-//     justifyContent: "center",
-//     alignItems: "center",
-//   },
-// });
