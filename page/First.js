@@ -1,17 +1,17 @@
-import { Text, View, SafeAreaView,Button } from "react-native";
+import { StyleSheet, Text, View, Button, SafeAreaView } from "react-native";
 import React from "react";
+import style1 from "../components/style1";
+import { useState } from "react";
 
-import style1 from "./components/style1";
-
-const Second = ({ navigation }) => {
+const First = ({ navigation }) => {
   return (
-    <SafeAreaView style={{flex:1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={style1.container}>
-        <Text style={style1.textTopStyle}>This is the Second page</Text>
+        <Text style={style1.textTopStyle}>This is the First page</Text>
         <Button
-          title="Go TO First Page "
+          title="Go TO Second Page "
           onPress={() => {
-            navigation.navigate("First Page");
+            navigation.navigate("Second Page");
           }}
         />
         <Button
@@ -30,4 +30,4 @@ const Second = ({ navigation }) => {
   );
 };
 
-export default Second;
+export default First;

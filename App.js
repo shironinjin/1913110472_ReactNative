@@ -8,9 +8,9 @@ import HomePost from "./screen/HomePost";
 import CreatePost from "./screen/CreatePost";
 import FirstPage from "./screen/FirstPage";
 import SecondPage from "./screen/SecondPage";
-import First from "./screen/First";
-import Second from "./Second";
-import Third from "./screen/Third";
+import First from "./page/First";
+import Second from "./page/Second";
+import Third from "./page/Third";
 
 /* function HomeScreen({Navigation}) {
   return (
