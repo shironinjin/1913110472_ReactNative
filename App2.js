@@ -45,8 +45,8 @@ const App = () => {
         }
        }}
        >
-        <Stack.Screen name="Home" component={HomeScreen} />
-        <Stack.Screen name="About" component={AboutScreen} />
+        {/* <Stack.Screen name="Home" component={HomeScreen} />
+        <Stack.Screen name="About" component={AboutScreen} /> */}
         {/* <Stack.Screen name="Home" component={HomePost} />
         <Stack.Screen name="Create" component={CreatePost} />
  */}
@@ -54,9 +54,9 @@ const App = () => {
 {/* <Stack.Screen name="First" component={FirstPage} />
 <Stack.Screen name="Second" component={SecondPage} /> */}
 
-{/* <Stack.Screen name="First Page" component={First} />
+<Stack.Screen name="First Page" component={First} />
 <Stack.Screen name="Second Page" component={Second} />
-<Stack.Screen name="Third Page" component={Third} /> */}
+<Stack.Screen name="Third Page" component={Third} />
 
       </Stack.Navigator>
     </NavigationContainer>
