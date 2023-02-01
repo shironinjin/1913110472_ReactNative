@@ -1,59 +1,92 @@
-import { View, Text ,ActivityIndicator,FlatList,Image } from 'react-native'
-import React,{useEffect,useState} from 'react'
+import { View, Text, Button } from "react-native";
+import React from "react";
+
+import HomeScreen2 from "./screen/HomeScreen2";
+import ProductScreen from "./screen/ProductScreen";
+import DetailScreen from "./screen/DetailScreen";
+
+import { 
+  createDrawerNavigator,
+  DrawerContentScrollView,
+  DrawerItemList,
+  DrawerItem,
+ } from "@react-navigation/drawer";
+import { NavigationContainer, StackActions } from "@react-navigation/native";
+import {createNativeStackNavigator} from '@react-navigation/native-stack'
+
+// function Homescreen() {
+//   return (
+//     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+//       <Button title="Go to Notifications" />
+//     </View>
+//   );
+// }
+
+
+function CustomDrawerContent(props) {
+  return (
+    <DrawerContentScrollView {...props}>
+      <DrawerItemList {...props} />
+      <DrawerItem
+        label="Close Drawer"
+        onPress={() => props.navigation.closeDrawer()}
+      />
+    </DrawerContentScrollView>
+  );
+}
+const Stack = createNativeStackNavigator();
+
+function ProductStack(){
+  return(
+    <Stack.Navigator
+    screenOptions={{
+      headerStyle: {
+        backgroundColor: "#ffb6c1",
+      },headerTintColor: "#fff",
+      headerTitleStyle: {
+        fontWeight: "bold",
+      },
+    }}>
+      <Stack.Screen name="Product" component={ProductScreen}/>
+      <Stack.Screen name="Detail" component={DetailScreen}/>
+    </Stack.Navigator>
+  )
+}
+
+const Drawer = createDrawerNavigator();
+function MyDrawer() {
+  return (
+    <Drawer.Navigator
+      screenOptions={{
+        headerStyle: {
+          backgroundColor: "#8fbc8f",
+        },
+        headerTintColor: "#fff",
+        headerTitleStyle: {
+          fontWeight: "bold",
+        },
+        drawerActiveTintColor: "tomato",
+      }}
+      useLegacyImplementation
+      drawerContent={(props) => <CustomDrawerContent {...props} />}
+      
+    >
+      <Drawer.Screen name="Home" component={HomeScreen2} />
+      <Drawer.Screen name="Product" component={ProductStack} />
+      {/* <Drawer.Screen name="Close Drawer" component={CustomDrawerContent} /> */}
+      
+    </Drawer.Navigator>
+  );
+}
+
+
 
 const App = () => {
-  const [isLoading,setLoading] = useState(true);
-  const [data,setData] = useState();
-
-  const getDataMovies =async ()=>{
-    try{
-      const response = await fetch('https://newsapi.org/v2/top-headlines?country=th&apiKey=ab0d4aca4cea481e8157d31c68eb2b23');
-      const json = await response.json();
-      setData(json.articles);
-    }catch(error){
-      console.error(error);
-    }finally{
-      setLoading(false);
-    }
-  };
-
-useEffect (()=>{  
-  getDataMovies();
-},[]);
-
-const _renderItem = ({item}) => {
-  return(
-    <View style={{flex:1}}>
-      <View style={{flex:1,flexDirection:'row',margin:5}}>
-          <Image
-          resizeMode='cover'
-          source={{uri: item.urlToImage}}
-          style={{flex:1,width:100,height:100}}
-          />
-          <View style={{width:200,margin:5}}>
-            <Text style={{fontSize:14,marginBottom:5}}>{item.title}</Text>
-            <Text style={{fontSize:10}}>{item.source.name}</Text>
-            <Text style={{fontSize:10,color:'red'}}>Publish:{item.publishedAt}</Text>
-          </View>
-      </View>
-    </View>
-  )
-}
-
   return (
-    <View style={{flex:1,padding:24}}>
-      { isLoading ? <ActivityIndicator size="large" color="#0000ff"/>
-      : (
-        <FlatList
-        data={data}
-        keyExtractor={item => item.title}
-        renderItem={_renderItem}
-        />
-      )
+    <NavigationContainer>
+      <MyDrawer />
+    </NavigationContainer>
+  );
+};
 
-      }
-    </View>
-  )
-}
-
-export default App
+export default App;
