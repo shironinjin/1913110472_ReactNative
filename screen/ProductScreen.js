@@ -16,7 +16,7 @@ import axios from "axios";
 const ProductScreen = ({navigation}) => {
   const [product, setProduct] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState();
+  const [error, setError] = useState(null);
 
   //จะทำงานเมื่อกดที่เมนู
 
@@ -82,7 +82,9 @@ const ProductScreen = ({navigation}) => {
         <TouchableOpacity
         style = {styles.addButtonStyle}
         onPress = {()=>{
-          navigation.navigate('Detail')
+          navigation.navigate('Detail',{
+            id : item.id,
+            title : item.title,         })
         }}
         
         >
